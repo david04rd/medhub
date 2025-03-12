@@ -1,0 +1,84 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <br />
+  <h2>Crear Noticia</h2>
+  <br />
+
+  <!-- Formulario para introducir la noticia. Los datos se procesan en onSubmit -->
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombreEntrada">Nombre de la Entrada</label>
+      <input
+        type="text"
+        id="nombreEntrada"
+        name="nombreEntrada"
+        class="form-control"
+        [(ngModel)]="noticiaForm.nombreEntrada"
+        required
+      />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+      <label for="contenido">Contenido</label>
+      <textarea
+        id="contenido"
+        name="contenido"
+        class="form-control"
+        [(ngModel)]="noticiaForm.contenido"
+        required
+      ></textarea>
+    </div>
+
+    <br />
+
+    <!-- Este bloque es el encargado de guardar la imagen y detectar si la imagen que se inserto ha cambiado 
+      en caso de que se introduzca una diferente para ser enviada con el objeto al back-end
+      -->
+    <div class="form-group">
+      <label for="portada">Portada</label>
+      <input
+        type="file"
+        id="portada"
+        name="portada"
+        (change)="onFileChange($event)"
+        class="form-control"
+      />
+    </div>
+
+    <br />
+
+    <!-- Lista todos los topicos con un checkbox que al marcarlos o desmarcarlos los añade o elimina de la lista de topicos asociados -->
+
+    <div *ngFor="let topico of topicos">
+      <label>
+        <input
+          type="checkbox"
+          [value]="topico"
+          (change)="onTopicoChange($event, topico)"
+        />
+        {{ topico.nombreTopico }}
+      </label>
+    </div>
+
+    <br />
+
+    <!-- Botón Guardar deshabilitado hasta que todos los campos estén completos -->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!camposRellenados()"
+    >
+      Guardar
+    </button>
+
+    <!-- Cancela la creacion de la noticia-->
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">
+      Cancelar
+    </button>
+  </form>
+</div>
+
+<app-footer></app-footer>

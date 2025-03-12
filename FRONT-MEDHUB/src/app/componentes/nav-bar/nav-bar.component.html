@@ -1,0 +1,88 @@
+<!-- HTML perteneciente a la barra de navegacion. Muestra botones segun en que pantallas se encuentre o en que estados se encuentre el usuario (logueado o no) -->
+<nav class="navbar navbar-expand-sm navbar-dark">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="navbar-nav-left d-flex">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button
+            *ngIf="estaLogueado()"
+            class="btn btn-primary rounded-pill"
+            routerLink="/biblioteca/tratamientos"
+          >
+            Biblioteca
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            *ngIf="estaLogueado()"
+            class="btn btn-primary rounded-pill"
+            routerLink="/hub-noticias"
+          >
+            Noticias
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-brand mx-auto">
+      <a routerLink="/">
+        <img
+          src="../../../assets/img/logoMedhub.png"
+          alt="Logo"
+          class="d-inline-block align-top"
+          loading="lazy"
+        />
+      </a>
+    </div>
+
+    <div class="navbar-nav-right d-flex">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button
+            *ngIf="!estaLogueado() && !inRegistro()"
+            class="btn btn-primary rounded-pill"
+            routerLink="/registro"
+          >
+            Registro
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            *ngIf="estaLogueado() && isAdmin()"
+            class="btn btn-primary rounded-pill"
+            routerLink="/topicos/hub-topicos"
+          >
+            Topicos
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            *ngIf="!estaLogueado() && !inLogin()"
+            class="btn btn-primary rounded-pill"
+            routerLink="/login"
+          >
+            Login
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            *ngIf="estaLogueado()"
+            class="btn btn-primary rounded-pill"
+            routerLink="/hub-foro"
+          >
+            Foro
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            *ngIf="estaLogueado()"
+            class="btn btn-primary rounded-pill"
+            (click)="logout()"
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

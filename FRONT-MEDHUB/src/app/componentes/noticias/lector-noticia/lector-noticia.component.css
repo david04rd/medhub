@@ -1,0 +1,49 @@
+.noticia-container {
+  width: 60%;
+  margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.noticia-banner {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Ajusta este valor según el efecto deseado */
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+
+.noticia-banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; 
+  background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+}
+
+.noticia-titulo {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.noticia-meta {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.noticia-contenido {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.linea-horizontal {
+  border: 0;
+  height: 5px;
+  background: #000000;
+  background-image: linear-gradient(to right, #ccc, #333, #000000);
+  margin: 20px 0;
+}

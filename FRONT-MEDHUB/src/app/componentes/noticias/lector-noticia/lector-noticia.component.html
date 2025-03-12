@@ -1,0 +1,31 @@
+<app-nav-bar></app-nav-bar>
+
+<!-- Comprueba si el usuario es el autor de la noticia para su posterior eliminacion -->
+<div *ngIf="userIsAutor()" class="text-center my-3">
+  <button class="btn btn-danger" (click)="borrarNoticia()">
+    Borrar Noticia
+  </button>
+</div>
+<div class="noticia-container">
+  <div class="noticia-detalles">
+    <div class="noticia-banner" style="background-image: url('../../../../../assets/img/imagenEntradaPorDefecto.jpg')">
+    </div>
+    <h1 class="noticia-titulo">{{ entrada.nombreEntrada }}</h1>
+    <hr class="linea-horizontal" />
+    <div class="noticia-meta">
+      <span>{{ entrada.fechaCreacion | date : "fullDate" }}</span>
+      <br />
+      <span>Por {{ entrada.autor.nombreUsuario }}</span>
+    </div>
+    <!-- innerHTML convierte el texto plano a HTML por eso en insertarSaltosLinea los <br> se representan de forma correcta en el HTML -->
+    <div class="noticia-contenido" [innerHTML]="insertarSaltosLinea(entrada.contenido)"></div>
+    <div class="noticia-meta">
+      <span
+        >Última actualización:
+        {{ entrada.fechaActualizacion | date : "fullDate" }}</span
+      >
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

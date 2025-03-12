@@ -1,0 +1,65 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <br />
+  <h2>Crear Entrada Biblioteca</h2>
+  <br />
+
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombreEntrada">Nombre de la Entrada</label>
+      <input
+        type="text"
+        id="nombreEntrada"
+        name="nombreEntrada"
+        class="form-control"
+        [(ngModel)]="entradaForm.nombreEntrada"
+        required
+      />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+      <label for="contenido">Contenido</label>
+      <textarea
+        id="contenido"
+        name="contenido"
+        class="form-control"
+        [(ngModel)]="entradaForm.contenido"
+        required
+      ></textarea>
+    </div>
+
+    <br />
+
+
+    <div class="form-group">
+      <label for="portada">Portada</label>
+      <input
+        type="file"
+        id="portada"
+        name="portada"
+        (change)="onFileChange($event)"
+        class="form-control"
+      />
+    </div>
+
+    <br />
+
+    <br />
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!camposRellenados()"
+    >
+      Guardar
+    </button>
+
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">
+      Cancelar
+    </button>
+  </form>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,65 @@
+.container {
+  padding-top: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 38px;
+}
+
+.navbar-brand img {
+  height: 70px;
+  margin-right: 10px;
+}
+
+.navbar-brand span {
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+}
+
+.novedades {
+  padding-top: 2%;
+  font-size: 38px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+  color: white;
+}
+
+:host {
+  display: block;
+  background-image: url("../../../assets/img/fondoInicio.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh; /* Ajusta según la altura que necesites */
+  width: 100%;
+}
+
+.noticias-container {
+  margin-top: 1rem;
+}
+
+.card {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+.container {
+  padding-top: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 38px;
+  padding-right: 10px;
+}
+
+.navbar-brand img {
+  height: 70px;
+  margin-right: 10px;
+}
+
+.navbar-brand span {
+  font-size: 24px;
+}

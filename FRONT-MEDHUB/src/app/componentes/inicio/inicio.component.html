@@ -1,0 +1,47 @@
+<app-nav-bar></app-nav-bar>
+<div class="container text-center">
+  <a class="navbar-brand" routerLink="/">
+    <img
+      src="../../../assets/img/logoMedhub.png"
+      alt="Logo"
+      class="d-inline-block align-top"
+      loading="lazy"
+    />
+    <span>BIENVENIDO A MEDHUB</span>
+  </a>
+</div>
+<div class="novedades">NOVEDADES</div>
+<br />
+
+<!-- En este apartado usaremos las funcionalidades ngIf y ngFor para mostrar datos
+    según los resultados. El primer ngIf comprueba si hay noticias o no para mostrar un 
+    div. Si hay noticias con ngFor por cada elemento de la lista se realiza un div con
+    clase card y se genera obteniendo los datos de cada una
+-->
+
+<div *ngIf="noticias.length === 0" class="text-center my-3">
+  <p style="color: white;">NO HAY NOTICIAS</p>
+</div>
+<div *ngIf="noticias.length > 0" class="noticias-container row gx-3">
+  <div *ngFor="let noticia of noticias; let i = index" class="col-md-4 mb-3">
+    <div class="card h-100">
+<!-- Debido a que aún no funciona la extracción del objeto Blob para el envío desde el back
+     todas las imagenes tendrán el logo de MedHub por defecto
+ -->
+      <img
+        src="../../../../../assets/img/imagenEntradaPorDefecto.jpg"
+        alt="Imagen No Encontrada"
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ noticia.nombreEntrada }}</h5>
+        <p class="card-text">Autor: {{ noticia.autor.nombreUsuario }}</p>
+        <!-- Al clicar sobre este botón se nos llevará a la vista para visualizar el contenido de la noticia -->
+        <button class="btn btn-primary" (click)="navigateNoticia(noticia.id)">
+          Ver Noticia
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

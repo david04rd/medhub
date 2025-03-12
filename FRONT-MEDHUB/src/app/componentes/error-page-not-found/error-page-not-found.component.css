@@ -1,0 +1,21 @@
+.fondo {
+    background-image: url("../../../assets/img/fondoBasico.PNG");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+h1{
+  font-weight: bold;
+  padding-top: 25%;
+  text-align: center;
+}
+
+p{
+  text-align: center;
+  font-weight: bold;
+
+}

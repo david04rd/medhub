@@ -1,0 +1,27 @@
+<app-nav-bar></app-nav-bar>
+
+<div *ngIf="userIsAutor()" class="text-center my-3">
+  <button class="btn btn-danger" (click)="borrarEntrada()">
+    Borrar Entrada
+  </button>
+</div>
+
+<div class="entrada-container">
+  <div class="entrada-detalles">
+    <div class="entrada-banner" style="background-image: url('../../../../../assets/img/imagenEntradaPorDefecto.jpg')">
+    </div>
+    <h1 class="entrada-titulo">{{ entrada.nombreEntrada }}</h1>
+    <hr class="linea-horizontal" />
+    <div class="entrada-meta">
+      <span>{{ entrada.fechaCreacion | date : "fullDate" }}</span>
+      <br />
+      <span>Por {{ entrada.autor.nombreUsuario }}</span>
+    </div>
+    <div class="entrada-contenido" [innerHTML]="insertarSaltosLinea(entrada.contenido)"></div>
+    <div class="entrada-meta">
+      <span>{{ entrada.fechaActualizacion | date : "fullDate" }}</span>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

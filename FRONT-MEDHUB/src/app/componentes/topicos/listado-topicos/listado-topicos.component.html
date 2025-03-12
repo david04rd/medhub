@@ -1,0 +1,47 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  <div class="text-center my-3">
+    <img src="../../../assets/img/logoMedhub.png" alt="Logo" class="logo-img d-inline-block align-top" loading="lazy" />
+    <h1 style="color: white;">Topicos</h1>
+  </div>
+
+  <!-- Modal de edición -->
+  <div *ngIf="topicoSeleccionado" class="modal" style="display: block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Tópico</h5>
+          <button type="button" class="close" (click)="cerrarModalEditar()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- Aquí va el formulario de edición -->
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="topicoSeleccionado.nombreTopico">
+          <label for="descripcion">Descripción:</label>
+          <textarea class="form-control" id="descripcion" [(ngModel)]="topicoSeleccionado.descripcion"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="cerrarModalEditar()">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin del modal de edición -->
+
+  <div *ngIf="topicos" class="row">
+    <div class="col-md-4" *ngFor="let topico of topicos">
+      <div class="card bg-dark text-white"> <!-- Cambiamos el fondo de la tarjeta a negro -->
+        <div class="card-body">
+          <h5 class="card-title">{{ topico.nombreTopico }}</h5>
+          <p class="card-text">{{ topico.descripcion }}</p>
+          <!-- Aquí se abre el modal de edición -->
+          <button class="btn btn-primary" (click)="abrirModalEditar(topico)">Editar Tópico</button>
+          <button class="btn btn-danger" (click)="borrarTopico(topico.id)">Borrar Tópico</button>        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

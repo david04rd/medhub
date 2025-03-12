@@ -1,0 +1,61 @@
+<app-nav-bar></app-nav-bar>
+
+<!-- Formulario para la recoleccion de datos para el registro de usuario  -->
+<div class="fondo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 form-container custom-width">
+        <h1 class="text-center mb-4">REGISTRO</h1>
+        <form (ngSubmit)="registro()">
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="nombreUsuario"
+              name="nombreUsuario"
+              placeholder="Introduzca el nombre de usuario"
+              [(ngModel)]="usuarioRegistrado.nombreUsuario"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Introduzca su correo electrónico"
+              [(ngModel)]="usuarioRegistrado.email"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="contrasena"
+              name="contrasena"
+              placeholder="Introduzca la contraseña"
+              [(ngModel)]="usuarioRegistrado.contrasenna"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="confirmacionContrasena"
+              name="confirmacionContrasena"
+              placeholder="Vuelva a introducir la contraseña"
+              [(ngModel)]="contrasennaConfirmacion"
+            />
+            <div class="text-center mt-3">
+              <a routerLink="/login">¿Ya tienes una cuenta? Inicia sesión</a>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Registrarse
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

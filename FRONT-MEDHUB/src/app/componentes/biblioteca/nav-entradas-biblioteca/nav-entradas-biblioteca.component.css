@@ -1,0 +1,8 @@
+.navbar-nav .nav-item {
+    border-right: 1px solid rgb(0, 153, 255);
+
+}
+
+.navbar-nav .nav-item:last-child {
+    border-right: none;
+}

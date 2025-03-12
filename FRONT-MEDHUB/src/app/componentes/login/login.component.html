@@ -1,0 +1,44 @@
+<app-nav-bar></app-nav-bar>
+<!-- Formulario para el inicio de sesion del usuario -->
+<div class="fondo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 custom-width form-container">
+        <h1 class="text-center mb-4">INICIA SESIÓN</h1>
+        <form>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="nombreUsuario"
+              name="nombreUsuario"
+              placeholder="Introduzca el nombre de usuario"
+              [(ngModel)]="datosUsuario.nombreUsuario"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="contrasena"
+              name="contrasena"
+              placeholder="Introduca la contraseña"
+              [(ngModel)]="datosUsuario.contrasenna"
+            />
+            <div class="text-center mt-3">
+              <a routerLink="/registro">¿No tienes una cuenta? Crea una aquí</a>
+            </div>
+          </div>
+          <button
+            type="submit"
+            (click)="iniciarSesion()"
+            class="btn btn-primary"
+          >
+            Iniciar sesión
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
